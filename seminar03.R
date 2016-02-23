@@ -117,14 +117,14 @@ str(car) # print list of all variables
 #R assumes anything numeric should be treated as a numeric variable by default
 #Say that we want to treat speed as a factor instead of numeric because there are only certain speeds that are actually possible for these cars 
 
-car$Speed <- factor(car$Speed)
+car$Speed <- as.factor(car$Speed)
 is.factor(car$Speed)
 
 #now R will treat this variable as a factor with four possible levels (4,7,8,9)
 
 #Wait, I've changed my mind, speed is obviously continuous! Change it back...
 
-car$Speed <- numeric(car$Speed)
+car$Speed <- as.numeric(car$Speed)
 
 
 # ==========================================================================
@@ -146,6 +146,7 @@ car$Quality[car$Name == "Renault Vivastella"] <- "Bad"
 car$Quality[car$Name == "Halford Special"] <- "Bad"
 car$Quality[car$Name == "Fiat 520"] <- "Great"
 car$Quality[car$Name == "Alfa Romeo G1"] <- "Great"
+car$Quality <- factor(car$Quality)
 
 #check to make sure this worked
 str(car)
