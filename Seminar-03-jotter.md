@@ -45,7 +45,8 @@ https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/i
 *csv is the suggested file format for importing your own data into R Studio.
 
 First, tell R Studio where to locate your file. Set your working directory in the More/settings button in the file directory window   
-**screen shot 6** 
+![screen shot 6]
+https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%206.png
 
 Use the command read.csv("file name"). We did this with the file "car.csv".
 Give your data set a name in R studio, so that it will appear in your global environment (upper right section of the screen). 
