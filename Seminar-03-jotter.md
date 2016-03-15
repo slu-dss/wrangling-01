@@ -34,26 +34,26 @@ We used all of these commands to look at the "speed" variable in "cars" data set
 ###### You can make a histogram to further explore the data. Use command hist(dataset$variable) to generate a histogram of a particular variable in a dataset.
 We made a histogram to look at the variable "speed" in the "cars" data set:
 ![screen shot3]
-https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%203.png
+(https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%203.png)
 
 ###### You can also make a scatter plot to examine the relationship between two variables. Use the command plot(dataset$variable1, dataset$variable2) to plot the data. The first variable will be plotted on the X-axis, the second on the Y-axis.
 We plotted the variables "speed" and "distance" in the "cars" data set:
-[screenshot5]
-https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%205.png
+![screenshot5]
+(https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%205.png)
 
 ##### How to read-in data (use your own data file) 
 *csv is the suggested file format for importing your own data into R Studio.
 
 First, tell R Studio where to locate your file. Set your working directory in the More/settings button in the file directory window   
 ![screen shot 6]
-https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%206.png
+(https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%206.png)
 
 Use the command read.csv("file name"). We did this with the file "car.csv".
 Give your data set a name in R studio, so that it will appear in your global environment (upper right section of the screen). 
 ex: car<-read.csv("car.csv")
 Then you can run the other commands to look at the data and descriptive stats, as we did above with the "cars" sample data set.
 ![screenshot7]
-https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%207.png
+(https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%207.png)
 
 	
 ##### A few notes on variables and factors in R
@@ -63,7 +63,7 @@ https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/i
 ex: car$speed<-as.factor(car$speed)
 Now R will treat this variable as a factor with four possible levels (4,7,8,9)
 ![screen shot 8]
-https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%208.png
+(https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%208.png)
 
 *Words are  assumed to be strings, and are made into factors. 
 
