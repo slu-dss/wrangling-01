@@ -52,7 +52,8 @@ Use the command read.csv("file name"). We did this with the file "car.csv".
 Give your data set a name in R studio, so that it will appear in your global environment (upper right section of the screen). 
 ex: car<-read.csv("car.csv")
 Then you can run the other commands to look at the data and descriptive stats, as we did above with the "cars" sample data set.
-**screen shot 7**
+![screenshot7]
+https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%207.png
 
 	
 ##### A few notes on variables and factors in R
