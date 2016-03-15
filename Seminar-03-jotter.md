@@ -62,7 +62,8 @@ https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/i
 
 ex: car$speed<-as.factor(car$speed)
 Now R will treat this variable as a factor with four possible levels (4,7,8,9)
-**screen shot 8**
+![screen shot 8]
+https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%208.png
 
 *Words are  assumed to be strings, and are made into factors. 
 
