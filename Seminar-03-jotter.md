@@ -33,7 +33,8 @@ We used all of these commands to look at the "speed" variable in "cars" data set
 
 ###### You can make a histogram to further explore the data. Use command hist(dataset$variable) to generate a histogram of a particular variable in a dataset.
 We made a histogram to look at the variable "speed" in the "cars" data set:
-**screen shot 3**
+![screen shot3]
+https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%203.png
 
 ###### You can also make a scatter plot to examine the relationship between two variables. Use the command plot(dataset$variable1, dataset$variable2) to plot the data. The first variable will be plotted on the X-axis, the second on the Y-axis.
 We plotted the variables "speed" and "distance" in the "cars" data set:
