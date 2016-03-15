@@ -38,7 +38,8 @@ https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/i
 
 ###### You can also make a scatter plot to examine the relationship between two variables. Use the command plot(dataset$variable1, dataset$variable2) to plot the data. The first variable will be plotted on the X-axis, the second on the Y-axis.
 We plotted the variables "speed" and "distance" in the "cars" data set:
-**screen shot 4 and 5**
+[screenshot5]
+https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/Screen%20Shot%205.png
 
 ##### How to read-in data (use your own data file) 
 *csv is the suggested file format for importing your own data into R Studio.
