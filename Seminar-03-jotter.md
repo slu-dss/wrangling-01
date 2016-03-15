@@ -13,7 +13,8 @@ R Studio contains several data sets. The next several commands will allow us to 
 The print (head or tail) commands are useful if you have a large data set.
 *print(cars) will generate all of the data. This is useful if you are looking at a small data set, such as the "cars" sample.
 
-![screenshot1]([https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/image1.png)
+![screenshot1]
+([https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/image1.png)
 
 ##### Running descriptive statistics on a data set
 ###### Use the following commands to further explore a data set. For each command, in parenthesis you need to specify which data set and which variable you want to examine:  
