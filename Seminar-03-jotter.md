@@ -28,7 +28,8 @@ sd(dataset$variable)  - standard deviation
 **OR** to get all of those measures EXCEPT the standard deviation, use the command summary(dataset).
 
 We used all of these commands to look at the "speed" variable in "cars" data set:
-**screen shot 2**
+![screenshot2]
+(https://github.com/slu-data-science-seminar/spring-2016-seminar-03/blob/master/images/image2.png)
 
 ###### You can make a histogram to further explore the data. Use command hist(dataset$variable) to generate a histogram of a particular variable in a dataset.
 We made a histogram to look at the variable "speed" in the "cars" data set:
