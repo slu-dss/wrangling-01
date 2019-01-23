@@ -103,3 +103,16 @@ usethis::use_course(
 * *summarize* - create grouped summaries of data
 
 These are all implemented in the tidyverse package `dplyr`, which we'll be focusing on with this seminar series.
+
+---
+
+# Back to the Basics
+
+If you are new to `R` (or it has been awhile!), we covered a number of topics in the fall semester that might be useful as you start learning. 
+
+* `research-01` - Introduction to RStudio and `R` Projects
+* `research-02` - Reading and Writing Data
+* `research-03` - Notebooks and RMarkdown
+* `research-04` - Using `knitr`
+
+You can find all of the materials for each seminar on our GitHub page!
