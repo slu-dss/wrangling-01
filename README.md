@@ -8,6 +8,7 @@
 
 ## Lesson Overview
 ### Lesson Objectives
+By the end of this lesson, learners should be able to:
 
 1. Define data wrangling and its goals.
 2. Create data frames from spreadsheet data.
