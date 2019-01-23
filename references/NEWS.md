@@ -5,3 +5,4 @@
 * Add basic overview slides
 * Enable continuous integration services
 * Update reference materials
+* Add challenge notebooks
