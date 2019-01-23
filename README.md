@@ -1,6 +1,6 @@
 # wrangling-01 <img src="/img/logo.png" align="right" />
 [![](https://img.shields.io/badge/seminar-data%20wrangling%20in%20r-brightgreen.svg)](https://github.com/slu-dss/wrangling-01/)
-[![](https://img.shields.io/badge/lesson%20status-under%20development-red.svg)](https://github.com/slu-dss/wrangling-01/)
+[![](https://img.shields.io/badge/lesson%20status-stable-brightgreen.svg)](https://github.com/slu-dss/wrangling-01/)
 [![](https://img.shields.io/github/release/slu-dss/wrangling-01.svg?label=version)](https://github.com/slu-dss/wrangling-01/releases)
 [![](https://img.shields.io/github/last-commit/slu-dss/wrangling-01.svg)](https://github.com/slu-dss/wrangling-01/commits/master)
 [![Travis-CI Build Status](https://travis-ci.org/slu-dss/wrangling-01.svg?branch=master)](https://travis-ci.org/slu-dss/wrangling-01)
