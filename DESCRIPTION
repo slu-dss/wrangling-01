@@ -1,18 +1,22 @@
-Package: research-04
-Title: Reproducible Research in R, Lesson 4 - Using knitr
-Version: 0.1.0.9000
+Package: wrangling-01
+Title: Data Wrangling in R, Lesson 1 - Working with Existing Variables
+Version: 0.1.0
 Authors@R: person("Christopher", "Prener", email = "chris.prener@slu.edu",
                   role = c("aut", "cre"))
-Description: This repository contains the fourth lesson for the Reproducible
-    Research in R seminar. This lesson covers the basics of using knitr to
-    produce a variety of research deliverables.
+Description: This repository contains the first lesson for the Data Wranlging
+    in R seminar. This lesson covers the basics of using janitor and dplyr
+    to rename and subset messy data.
 Depends: R (>= 3.3)
 License: CC-BY-SA-4.0 + LICENSE
 Web: https://slu-dss.github.io
-URL: https://github.com/slu-dss/research-04
-BugReports: https://github.com/slu-dss/research-04/issues
+URL: https://github.com/slu-dss/wrangling-01
+BugReports: https://github.com/slu-dss/wrangling-01/issues
 Imports:
+    dplyr,
     here,
+    janitor,
     knitr,
+    readr,
     rmarkdown,
-    usethis
+    usethis,
+    xaringan
