@@ -7,6 +7,13 @@
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/slu-dss/wrangling-01?branch=master&svg=true)](https://ci.appveyor.com/project/chris-prener/wrangling-01)
 
 ## Lesson Overview
+### Lesson Objectives
+
+1. Define data wrangling and its goals.
+2. Create data frames from spreadsheet data.
+3. Manage poorly named variables using multiple tools.
+4. Organize columns in a data frame by sub-setting and re-ordering.
+5. Construct a pipeline to simplify code needed for data wrangling.
 
 ### Lesson Resources
 * The [`SETUP.md`](/references/SETUP.md) file in the [`references/`](/references) directory contains a list of packages required for this lesson
