@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Wrangling in R</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Christy Garcia and Chris Prener" />
+    <meta name="date" content="2019-01-23" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Data Wrangling in <code>R</code>
+## Lesson 1: Working with Existing Variables
+### Christy Garcia and Chris Prener
+### January 23, 2019
+
+---
+
+
+# What We're All About
+
+We're in our **seventh semester** of offering seminars on using `R` for data science. 
+
+&lt;/br&gt;
+
+We were founded in **2015** by Christy Garcia, Chris Prener, and Kelly Lovejoy.
+
+&lt;/br&gt;
+
+We are a **collaborative, interdisciplinary** group at Saint Louis University focused on **building community** around open source software and open science.
+
+---
+
+# What We're All About
+
+We ❤️ `R`, RStudio, and the `tidyverse`!
+
+--
+
+&lt;/br&gt;
+
+Our seminars cover *most* of data science workflow from Wickham and Grollman (2016):
+
+&lt;img src="assets/workflow.png" width="689" /&gt;
+
+---
+
+# Upcoming Events
+
+### DSS 06: Reproducible Research in `R`
+
+* Session 02 - February 6th
+* Session 03 - February 20th
+* Session 04 - March 6th
+
+--
+
+### Other DSS Events
+
+* Data Science Meetup - March 29th
+* Brownbag, Iteration in `R` with `purrr` - March 20th
+* Brownbag, Making Science More Open - April 2nd
+* Brownbag, Adding Python to `R` Workflows - April 17th
+
+---
+
+# GitHub
+
+We host all of our materials on GitHub. If you want to get back to the lesson materials later, head to [https://github.com/slu-dss](https://github.com/slu-dss) and look for the `wrangling-01` repository (a special type of folder).
+
+&lt;img src="assets/github.png" width="1508" /&gt;
+
+---
+
+# Getting Started
+
+* You need to have `R` installed and **RStudio** open.
+
+* You need to have installed all of the necessary packages:
+
+```r
+install.packages(c("tidyverse", "here", "knitr", "janitor", 
+"rmarkdown", "usethis"))
+```
+
+* You need to have downloaded and opened our lesson materials:
+
+```r
+usethis::use_course(
+"https://github.com/slu-dss/wrangling-01/archive/master.zip")
+```
+
+* RStudio should open a new window that says `wrangling-01` in the upper right hand corner.
+
+---
+
+# Data Wrangling Verbs
+
+* *rename* - change variable names
+* *select* - subset columns
+* *mutate* - modify values
+* *arrange* - sort data based on values
+* *filter* - subset based on values
+* *summarize* - create grouped summaries of data
+
+These are all implemented in the tidyverse package `dplyr`, which we'll be focusing on with this seminar series.
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

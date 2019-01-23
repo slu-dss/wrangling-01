@@ -15,7 +15,8 @@
 * The [`references/`](/references) directory also contains other notes on changes to the repository, key topics, terms, data sources, and software.
 
 ### Extra Resources
-* [RStudio's R Markdown website](https://rmarkdown.rstudio.com)
+* [*R for Data Science*, Chapter 5 - Data Transformation](https://r4ds.had.co.nz/transform.html)
+* [RStudio's `dplyr` Cheat Sheet](https://www.rstudio.com/resources/cheatsheets/#dplyr)
 
 ### Lesson Quick Start
 #### Install Necessary Packages

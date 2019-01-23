@@ -1,0 +1,105 @@
+---
+title: "Data Wrangling in `R`"
+subtitle: "Lesson 1: Working with Existing Variables"
+author: "Christy Garcia and Chris Prener"
+date: "January 23, 2019"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+# What We're All About
+
+We're in our **seventh semester** of offering seminars on using `R` for data science. 
+
+</br>
+
+We were founded in **2015** by Christy Garcia, Chris Prener, and Kelly Lovejoy.
+
+</br>
+
+We are a **collaborative, interdisciplinary** group at Saint Louis University focused on **building community** around open source software and open science.
+
+---
+
+# What We're All About
+
+We `r emojifont::emoji('heart')` `R`, RStudio, and the `tidyverse`!
+
+--
+
+</br>
+
+Our seminars cover *most* of data science workflow from Wickham and Grollman (2016):
+
+```{r add-workflow-image, echo=FALSE}
+knitr::include_graphics("assets/workflow.png")
+```
+
+---
+
+# Upcoming Events
+
+### DSS 06: Reproducible Research in `R`
+
+* Session 02 - February 6th
+* Session 03 - February 20th
+* Session 04 - March 6th
+
+--
+
+### Other DSS Events
+
+* Data Science Meetup - March 29th
+* Brownbag, Iteration in `R` with `purrr` - March 20th
+* Brownbag, Making Science More Open - April 2nd
+* Brownbag, Adding Python to `R` Workflows - April 17th
+
+---
+
+# GitHub
+
+We host all of our materials on GitHub. If you want to get back to the lesson materials later, head to [https://github.com/slu-dss](https://github.com/slu-dss) and look for the `wrangling-01` repository (a special type of folder).
+
+```{r add-github-image, echo=FALSE}
+knitr::include_graphics("assets/github.png")
+```
+
+---
+
+# Getting Started
+
+* You need to have `R` installed and **RStudio** open.
+
+* You need to have installed all of the necessary packages:
+
+```r
+install.packages(c("tidyverse", "here", "knitr", "janitor", 
+"rmarkdown", "usethis"))
+```
+
+* You need to have downloaded and opened our lesson materials:
+
+```r
+usethis::use_course(
+"https://github.com/slu-dss/wrangling-01/archive/master.zip")
+```
+
+* RStudio should open a new window that says `wrangling-01` in the upper right hand corner.
+
+---
+
+# Data Wrangling Verbs
+
+* *rename* - change variable names
+* *select* - subset columns
+* *mutate* - modify values
+* *arrange* - sort data based on values
+* *filter* - subset based on values
+* *summarize* - create grouped summaries of data
+
+These are all implemented in the tidyverse package `dplyr`, which we'll be focusing on with this seminar series.
