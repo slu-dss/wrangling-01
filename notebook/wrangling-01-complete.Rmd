@@ -162,6 +162,21 @@ starwars_3_subset %>%
   select(planet, everything()) -> starwars_4_subset
 ```
 
+### Removing Variables
+We can also use `select()` to remove variables from a data frame. We won't assign these changes to an object this time:
+
+```{r remove-hwy-mpg}
+mpg_4_subset %>%
+  select(-hwy)
+```
+
+You try the same with the `starwars_4_subset` data by removing the bith year data. Again, no need to assign the changes to an object.
+
+```{r remove-bithyear-starwars}
+starwars_4_subset %>%
+  select(-birthYear)
+```
+
 ## More on Pipelines
 As you can see, we've made a number of what are known as "intermediary" data objects - they capture specific changes to our data as we proceed through the data cleaning process. These sometimes can be helpful when you are learning how to code and clean data, but ultimately they can create confusion and are unnecessary. We can simplify all of the code we have written into a single pipeline:
 

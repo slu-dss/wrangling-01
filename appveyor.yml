@@ -55,6 +55,8 @@ test_script:
   - Rscript -e "rmarkdown::render('docs/index.Rmd')"
   - Rscript -e "rmarkdown::render('notebook/wrangling-01.Rmd')"
   - Rscript -e "rmarkdown::render('notebook/wrangling-01-complete.Rmd')"
+  - Rscript -e "rmarkdown::render('challenge/wrangling-01-challenge.Rmd')"
+  - Rscript -e "rmarkdown::render('challenge/wrangling-01-challenge-complete.Rmd')"
 
 on_failure:
   - 7z a failure.zip *.Rcheck\*

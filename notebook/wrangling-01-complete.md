@@ -287,6 +287,54 @@ starwars_3_subset %>%
   select(planet, everything()) -> starwars_4_subset
 ```
 
+### Removing Variables
+
+We can also use `select()` to remove variables from a data frame. We
+won’t assign these changes to an object this time:
+
+``` r
+mpg_4_subset %>%
+  select(-hwy)
+```
+
+    ## # A tibble: 234 x 2
+    ##    mfr   model     
+    ##    <chr> <chr>     
+    ##  1 audi  a4        
+    ##  2 audi  a4        
+    ##  3 audi  a4        
+    ##  4 audi  a4        
+    ##  5 audi  a4        
+    ##  6 audi  a4        
+    ##  7 audi  a4        
+    ##  8 audi  a4 quattro
+    ##  9 audi  a4 quattro
+    ## 10 audi  a4 quattro
+    ## # … with 224 more rows
+
+You try the same with the `starwars_4_subset` data by removing the bith
+year data. Again, no need to assign the changes to an object.
+
+``` r
+starwars_4_subset %>%
+  select(-birthYear)
+```
+
+    ## # A tibble: 87 x 2
+    ##    planet   name              
+    ##    <chr>    <chr>             
+    ##  1 Tatooine Luke Skywalker    
+    ##  2 Tatooine C-3PO             
+    ##  3 Naboo    R2-D2             
+    ##  4 Tatooine Darth Vader       
+    ##  5 Alderaan Leia Organa       
+    ##  6 Tatooine Owen Lars         
+    ##  7 Tatooine Beru Whitesun lars
+    ##  8 Tatooine R5-D4             
+    ##  9 Tatooine Biggs Darklighter 
+    ## 10 Stewjon  Obi-Wan Kenobi    
+    ## # … with 77 more rows
+
 ## More on Pipelines
 
 As you can see, we’ve made a number of what are known as “intermediary”
