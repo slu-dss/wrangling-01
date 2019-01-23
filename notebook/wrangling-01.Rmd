@@ -60,7 +60,7 @@ Now, it is your turn! Explore the `starwars` data and identify issues:
 
 ## Fixing Variable Names
 ### With `janitor`
-One of the issues with both data sets are the variable names. If you have a data set with a large number of columns that you'll want to retain, but many of which need to be renamed, the `janitor` package's `clean_names()` function can help jumpstart the process.
+One of the issues with both data sets are the variable names. If you have a data set with a large number of columns that you'll want to retain, but many of which need to be renamed, the `janitor` package's `clean_names()` function can help jump start the process.
 
 The `case` argument is particularly important here. The default is `case = snake`:
 * "snake" produces snake_case
@@ -119,7 +119,7 @@ Now, you try on the `starwars_1_names` data. Rename `characterName`, `yearOfBith
 ```
 
 ## Selecting Columns
-### Subsetting
+### Sub-setting
 We often only want a selection of columns from our data. We can use the `select()` function from `dplyr` to help get us a subset of our data.
 
 ```{r subset-mpg}
@@ -155,7 +155,7 @@ Now, you try re-ordering the columns in `starwars_3_subset`. Save the outcome in
 ```
 
 ## More on Pipelines
-As you can see, we've made a number of what are known as "intermediary" data objects - they capture specific changes to our data as we proceed through the data cleaning process. These sometimes can be helpful when you are learning how to code and clean data, but ultimately they can create confusion and are unncessary. We can simplify all of the code we have written into a single pipeline:
+As you can see, we've made a number of what are known as "intermediary" data objects - they capture specific changes to our data as we proceed through the data cleaning process. These sometimes can be helpful when you are learning how to code and clean data, but ultimately they can create confusion and are unnecessary. We can simplify all of the code we have written into a single pipeline:
 
 ```{r mpg-pipeline}
 read_csv(here("data", "mpg_messy.csv")) %>%

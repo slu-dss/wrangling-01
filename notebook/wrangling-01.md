@@ -79,24 +79,6 @@ mpg <- read_csv(here("data", "mpg_messy.csv"))
 Now, you try the same syntax out - import the `starwars_messy.csv` data
 from the same source:
 
-``` r
-starwars <- read_csv(here("data", "starwars_messy.csv"))
-```
-
-    ## Parsed with column specification:
-    ## cols(
-    ##   `character name` = col_character(),
-    ##   HEIGHT = col_double(),
-    ##   MASS = col_double(),
-    ##   `hair color` = col_character(),
-    ##   `skin color` = col_character(),
-    ##   `eye color` = col_character(),
-    ##   `year of bith` = col_double(),
-    ##   gender = col_character(),
-    ##   homeworld = col_character(),
-    ##   species = col_character()
-    ## )
-
 ## Quickly Exploring Data
 
 To quickly explore the `mpg` data, we’ll take a look at both the column
@@ -134,37 +116,7 @@ str(mpg)
 
 What issues do we see with these data?
 
-Now, it is your turn\! Explore the `starwars` data and identify
-    issues:
-
-``` r
-str(starwars)
-```
-
-    ## Classes 'spec_tbl_df', 'tbl_df', 'tbl' and 'data.frame': 87 obs. of  10 variables:
-    ##  $ character name: chr  "Luke Skywalker" "C-3PO" "R2-D2" "Darth Vader" ...
-    ##  $ HEIGHT        : num  172 167 96 202 150 178 165 97 183 182 ...
-    ##  $ MASS          : num  77 75 32 136 49 120 75 32 84 77 ...
-    ##  $ hair color    : chr  "blond" NA NA "none" ...
-    ##  $ skin color    : chr  "fair" "gold" "white, blue" "white" ...
-    ##  $ eye color     : chr  "blue" "yellow" "red" "yellow" ...
-    ##  $ year of bith  : num  19 112 33 41.9 19 52 47 NA 24 57 ...
-    ##  $ gender        : chr  "male" NA NA "male" ...
-    ##  $ homeworld     : chr  "Tatooine" "Tatooine" "Naboo" "Tatooine" ...
-    ##  $ species       : chr  "Human" "Droid" "Droid" "Human" ...
-    ##  - attr(*, "spec")=
-    ##   .. cols(
-    ##   ..   `character name` = col_character(),
-    ##   ..   HEIGHT = col_double(),
-    ##   ..   MASS = col_double(),
-    ##   ..   `hair color` = col_character(),
-    ##   ..   `skin color` = col_character(),
-    ##   ..   `eye color` = col_character(),
-    ##   ..   `year of bith` = col_double(),
-    ##   ..   gender = col_character(),
-    ##   ..   homeworld = col_character(),
-    ##   ..   species = col_character()
-    ##   .. )
+Now, it is your turn\! Explore the `starwars` data and identify issues:
 
 ## Fixing Variable Names
 
@@ -210,11 +162,6 @@ mpg %>%
 Now, you try with the `starwars` data. Use whatever format you’d like,
 and save your output to `starwars_1_names`\!
 
-``` r
-starwars %>%
-  clean_names(case = "lower_camel") -> starwars_1_names
-```
-
 ### With `dplyr`
 
 We now have standardized variable names without special characters, but
@@ -233,15 +180,6 @@ mpg_1_names %>%
 Now, you try on the `starwars_1_names` data. Rename `characterName`,
 `yearOfBith` and `homeworld`:
 
-``` r
-starwars_1_names %>%
-  rename(
-    name = characterName,
-    birthYear = yearOfBith,
-    planet = homeworld
-  ) -> starwars_2_names
-```
-
 ## Selecting Columns
 
 ### Sub-setting
@@ -256,11 +194,6 @@ mpg_2_names %>%
 
 Now, you try - subset the `starwars_2_names` data so that we only have
 name, birth year, and planet:
-
-``` r
-starwars_2_names %>%
-  select(name, birthYear, planet) -> starwars_3_subset
-```
 
 ### Re-ordering
 
@@ -281,11 +214,6 @@ mpg_3_subset %>%
 
 Now, you try re-ordering the columns in `starwars_3_subset`. Save the
 outcome in `starwars_4_subset`:
-
-``` r
-starwars_3_subset %>%
-  select(planet, everything()) -> starwars_4_subset
-```
 
 ## More on Pipelines
 
@@ -331,28 +259,3 @@ read:
 5.  we store the results in a new object named `mpgClean`.
 
 Now, you try condensing all of the starwars code into a single pipeline:
-
-``` r
-read_csv(here("data", "starwars_messy.csv")) %>%
-  clean_names(case = "lower_camel") %>%
-  rename(
-    name = characterName,
-    birthYear = yearOfBith,
-    planet = homeworld
-  ) %>%
-  select(planet, everything()) -> starwarsClean
-```
-
-    ## Parsed with column specification:
-    ## cols(
-    ##   `character name` = col_character(),
-    ##   HEIGHT = col_double(),
-    ##   MASS = col_double(),
-    ##   `hair color` = col_character(),
-    ##   `skin color` = col_character(),
-    ##   `eye color` = col_character(),
-    ##   `year of bith` = col_double(),
-    ##   gender = col_character(),
-    ##   homeworld = col_character(),
-    ##   species = col_character()
-    ## )
