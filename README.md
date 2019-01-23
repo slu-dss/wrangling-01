@@ -7,6 +7,8 @@
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/slu-dss/wrangling-01?branch=master&svg=true)](https://ci.appveyor.com/project/chris-prener/wrangling-01)
 
 ## Lesson Overview
+This repository contains the first lesson for the Data Wrangling in R seminar. This lesson covers the basics of using janitor and dplyr to rename and subset messy data.
+
 ### Lesson Objectives
 By the end of this lesson, learners should be able to:
 
