@@ -1,0 +1,198 @@
+---
+title: "Data Wrangling in R, Lesson 1"
+author: "Christopher Prener, Ph.D."
+date: '(`r format(Sys.time(), "%B %d, %Y")`)'
+output:
+  github_document: default
+  html_notebook: default
+---
+
+## Introduction
+This is the notebook for the first data wrangling lesson. Today, we'll be covering how to work with existing variables. This includes the `clean_names()` function from `janitor` as well as the `rename()` and `select()` functions from `dplyr`.
+
+## Dependencies
+This notebook requires two packages from the `tidyverse` as well as two additional packages:
+
+```{r load-packages}
+# tidyverse packages
+library(dplyr)     # data wrangling
+library(readr)     # read and write csv files
+
+# data wrangling
+library(janitor)   # data wrangling
+
+# manage file paths
+library(here)      # manage file paths
+```
+
+## Reading Data
+This was more fully covered in a [previous seminar](https://github.com/slu-dss/research-02). Today, we'll review how to read `.csv` files into `R`. We have to files in the `data/` subdirectory of our project:
+
+1. `mpg_messy.csv` - a version of the `mpg` data from `ggplot2` with *terrible* column names
+2. `starwars_messy.csv` - a version of the `starwars` data from `dplyr` with equally horrible column names
+
+To read `.csv` files into `R`, we'll use the `readr` package's `read_csv()` function. **This is different from `utils::read.csv()`!**
+
+```{r read-mpg}
+mpg <- read_csv(here("data", "mpg_messy.csv"))
+```
+
+Now, you try the same syntax out - import the `starwars_messy.csv` data from the same source:
+
+```{r read-starwars}
+starwars <- read_csv(here("data", "starwars_messy.csv"))
+```
+
+## Quickly Exploring Data
+To quickly explore the `mpg` data, we'll take a look at both the column names and some sample values using `utils::str()`:
+
+```{r explore-mpg}
+str(mpg)
+```
+
+What issues do we see with these data?
+
+Now, it is your turn! Explore the `starwars` data and identify issues:
+
+```{r explore-starwars}
+str(starwars)
+```
+
+## Fixing Variable Names
+### With `janitor`
+One of the issues with both data sets are the variable names. If you have a data set with a large number of columns that you'll want to retain, but many of which need to be renamed, the `janitor` package's `clean_names()` function can help jumpstart the process.
+
+The `case` argument is particularly important here. The default is `case = snake`:
+* "snake" produces snake_case
+
+There are several other options though:
+* "lower_camel" or "small_camel" produces lowerCamel 
+* "upper_camel" or "big_camel" produces UpperCamel
+* "screaming_snake" or "all_caps" produces ALL_CAPS 
+* "lower_upper" produces lowerUPPER
+* "upper_lower" produces UPPERlower
+
+We'll try out `clean_names()` on the `mpg` data:
+
+```{r clean-names-mpg}
+mpg %>%
+  clean_names() -> mpg_1_names
+```
+
+This is a *pipeline*. We can read it like a paragraph, inserting the word *then* every time we see the pipe operator (`%>%`):
+
+1. First, we take the `mpg` data, *then*
+2. we clean its names, *then*
+3. we save the output to `mpg_1_names`.
+
+We use pipelines to make our code easier to read.
+
+Now, back to renaming variables! We can specify a different case using:
+
+```{r clean-names-mpg-2}
+mpg %>%
+  clean_names(case = "lower_camel") -> mpg_1_names
+```
+
+Now, you try with the `starwars` data. Use whatever format you'd like, and save your output to `starwars_1_names`!
+
+```{r clean-names-starwars}
+starwars %>%
+  clean_names(case = "lower_camel") -> starwars_1_names
+```
+
+### With `dplyr`
+We now have standardized variable names without special characters, but many are too long for easy use. We can use `dplyr`'s `rename()` function to modify these names manually:
+
+```{r rename-mpg}
+mpg_1_names %>%
+  rename(
+    mfr = manufacturersName,
+    model = vehicleModel,
+    hwy = highwayFuelEfficencyMpg
+  ) -> mpg_2_names
+```
+
+Now, you try on the `starwars_1_names` data. Rename `characterName`, `yearOfBith` and `homeworld`:
+
+```{r rename-starwras}
+starwars_1_names %>%
+  rename(
+    name = characterName,
+    birthYear = yearOfBith,
+    planet = homeworld
+  ) -> starwars_2_names
+```
+
+## Selecting Columns
+### Subsetting
+We often only want a selection of columns from our data. We can use the `select()` function from `dplyr` to help get us a subset of our data.
+
+```{r subset-mpg}
+mpg_2_names %>%
+  select(mfr, model, hwy) -> mpg_3_subset
+```
+
+Now, you try - subset the `starwars_2_names` data so that we only have name, birth year, and planet:
+
+```{r subset-starwars}
+starwars_2_names %>%
+  select(name, birthYear, planet) -> starwars_3_subset
+```
+
+### Re-ordering
+We can also use `select()` to re-order columns:
+
+```{r order-mpg}
+mpg_3_subset %>%
+  select(hwy, mfr, model) -> mpg_4_subset
+```
+
+If we have a lot of column names, this can be cumbersome. Luckily, the `everything()` function from `dplyr()` can be used to make life easier:
+
+```{r order-mpg-2}
+mpg_3_subset %>%
+  select(hwy, everything()) -> mpg_4_subset
+```
+
+Now, you try re-ordering the columns in `starwars_3_subset`. Save the outcome in `starwars_4_subset`:
+
+```{r order-starwars}
+starwars_3_subset %>%
+  select(planet, everything()) -> starwars_4_subset
+```
+
+## More on Pipelines
+As you can see, we've made a number of what are known as "intermediary" data objects - they capture specific changes to our data as we proceed through the data cleaning process. These sometimes can be helpful when you are learning how to code and clean data, but ultimately they can create confusion and are unncessary. We can simplify all of the code we have written into a single pipeline:
+
+```{r mpg-pipeline}
+read_csv(here("data", "mpg_messy.csv")) %>%
+  clean_names(case = "lower_camel") %>%
+  rename(
+    mfr = manufacturersName,
+    model = vehicleModel,
+    hwy = highwayFuelEfficencyMpg
+  ) %>%
+  select(mfr, model, hwy) -> mpgClean
+```
+
+This is more compact (less opportunity for typos!) and far easier to read:
+
+1. First, we import the `mpg_messy.csv` data, *then*
+2. we convert all of the column names to lowerCamel, *then*
+3. we rename several variables further, *then*
+4. we subset based on column, *then*
+5. we store the results in a new object named `mpgClean`.
+
+Now, you try condensing all of the starwars code into a single pipeline:
+
+```{r starwars-pipeline}
+read_csv(here("data", "starwars_messy.csv")) %>%
+  clean_names(case = "lower_camel") %>%
+  rename(
+    name = characterName,
+    birthYear = yearOfBith,
+    planet = homeworld
+  ) %>%
+  select(planet, everything()) -> starwarsClean
+```
