@@ -3,8 +3,6 @@
 [![](https://img.shields.io/badge/lesson%20status-stable-brightgreen.svg)](https://github.com/slu-dss/wrangling-01/)
 [![](https://img.shields.io/github/release/slu-dss/wrangling-01.svg?label=version)](https://github.com/slu-dss/wrangling-01/releases)
 [![](https://img.shields.io/github/last-commit/slu-dss/wrangling-01.svg)](https://github.com/slu-dss/wrangling-01/commits/master)
-[![Travis-CI Build Status](https://travis-ci.org/slu-dss/wrangling-01.svg?branch=master)](https://travis-ci.org/slu-dss/wrangling-01)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/slu-dss/wrangling-01?branch=master&svg=true)](https://ci.appveyor.com/project/chris-prener/wrangling-01)
 
 ## Lesson Overview
 This repository contains the first lesson for the Data Wrangling in R seminar. This lesson covers the basics of using janitor and dplyr to rename and subset messy data.
