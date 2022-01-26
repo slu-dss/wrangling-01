@@ -1,7 +1,7 @@
 Data Wrangling in R, Lesson 1
 ================
 Christopher Prener, Ph.D.
-(January 23, 2019)
+(January 26, 2022)
 
 ## Introduction
 
@@ -36,12 +36,21 @@ library(readr)     # read and write csv files
 
 # data wrangling
 library(janitor)   # data wrangling
+```
 
+    ## 
+    ## Attaching package: 'janitor'
+
+    ## The following objects are masked from 'package:stats':
+    ## 
+    ##     chisq.test, fisher.test
+
+``` r
 # manage file paths
 library(here)      # manage file paths
 ```
 
-    ## here() starts at /Users/chris/GitHub/DSS/wrangling-01
+    ## here() starts at /Users/prenercg/GitHub/slu-dss/wrangling-01
 
 ## Reading Data
 
@@ -56,25 +65,22 @@ subdirectory of our project:
     with equally horrible column names
 
 To read `.csv` files into `R`, we’ll use the `readr` package’s
-`read_csv()` function. **This is different from `utils::read.csv()`\!**
+`read_csv()` function. **This is different from `utils::read.csv()`!**
 
 ``` r
 mpg <- read_csv(here("data", "mpg_messy.csv"))
 ```
 
-    ## Parsed with column specification:
-    ## cols(
-    ##   `manufacturer's name` = col_character(),
-    ##   `vehicle model` = col_character(),
-    ##   `Engine Displacement` = col_double(),
-    ##   YEAR = col_double(),
-    ##   `# of cylinders` = col_double(),
-    ##   `transmission type` = col_character(),
-    ##   `drivetrain type` = col_character(),
-    ##   `city fuel efficiency (mpg)` = col_double(),
-    ##   `highway fuel efficency (mpg)` = col_double(),
-    ##   `vehicle class` = col_character()
-    ## )
+    ## Rows: 234 Columns: 10
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## chr (5): manufacturer's name, vehicle model, transmission type, drivetrain t...
+    ## dbl (5): Engine Displacement, YEAR, # of cylinders, city fuel efficiency (mp...
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 Now, you try the same syntax out - import the `starwars_messy.csv` data
 from the same source:
@@ -83,41 +89,37 @@ from the same source:
 starwars <- read_csv(here("data", "starwars_messy.csv"))
 ```
 
-    ## Parsed with column specification:
-    ## cols(
-    ##   `character name` = col_character(),
-    ##   HEIGHT = col_double(),
-    ##   MASS = col_double(),
-    ##   `hair color` = col_character(),
-    ##   `skin color` = col_character(),
-    ##   `eye color` = col_character(),
-    ##   `year of bith` = col_double(),
-    ##   gender = col_character(),
-    ##   homeworld = col_character(),
-    ##   species = col_character()
-    ## )
+    ## Rows: 87 Columns: 10
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## chr (7): character name, hair color, skin color, eye color, gender, homeworl...
+    ## dbl (3): HEIGHT, MASS, year of bith
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ## Quickly Exploring Data
 
 To quickly explore the `mpg` data, we’ll take a look at both the column
-names and some sample values using
-    `utils::str()`:
+names and some sample values using `utils::str()`:
 
 ``` r
 str(mpg)
 ```
 
-    ## Classes 'spec_tbl_df', 'tbl_df', 'tbl' and 'data.frame': 234 obs. of  10 variables:
-    ##  $ manufacturer's name         : chr  "audi" "audi" "audi" "audi" ...
-    ##  $ vehicle model               : chr  "a4" "a4" "a4" "a4" ...
-    ##  $ Engine Displacement         : num  1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...
-    ##  $ YEAR                        : num  1999 1999 2008 2008 1999 ...
-    ##  $ # of cylinders              : num  4 4 4 4 6 6 6 4 4 4 ...
-    ##  $ transmission type           : chr  "auto(l5)" "manual(m5)" "manual(m6)" "auto(av)" ...
-    ##  $ drivetrain type             : chr  "f" "f" "f" "f" ...
-    ##  $ city fuel efficiency (mpg)  : num  18 21 20 21 16 18 18 18 16 20 ...
-    ##  $ highway fuel efficency (mpg): num  29 29 31 30 26 26 27 26 25 28 ...
-    ##  $ vehicle class               : chr  "compact" "compact" "compact" "compact" ...
+    ## spec_tbl_df [234 × 10] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+    ##  $ manufacturer's name         : chr [1:234] "audi" "audi" "audi" "audi" ...
+    ##  $ vehicle model               : chr [1:234] "a4" "a4" "a4" "a4" ...
+    ##  $ Engine Displacement         : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...
+    ##  $ YEAR                        : num [1:234] 1999 1999 2008 2008 1999 ...
+    ##  $ # of cylinders              : num [1:234] 4 4 4 4 6 6 6 4 4 4 ...
+    ##  $ transmission type           : chr [1:234] "auto(l5)" "manual(m5)" "manual(m6)" "auto(av)" ...
+    ##  $ drivetrain type             : chr [1:234] "f" "f" "f" "f" ...
+    ##  $ city fuel efficiency (mpg)  : num [1:234] 18 21 20 21 16 18 18 18 16 20 ...
+    ##  $ highway fuel efficency (mpg): num [1:234] 29 29 31 30 26 26 27 26 25 28 ...
+    ##  $ vehicle class               : chr [1:234] "compact" "compact" "compact" "compact" ...
     ##  - attr(*, "spec")=
     ##   .. cols(
     ##   ..   `manufacturer's name` = col_character(),
@@ -131,27 +133,27 @@ str(mpg)
     ##   ..   `highway fuel efficency (mpg)` = col_double(),
     ##   ..   `vehicle class` = col_character()
     ##   .. )
+    ##  - attr(*, "problems")=<externalptr>
 
 What issues do we see with these data?
 
-Now, it is your turn\! Explore the `starwars` data and identify
-    issues:
+Now, it is your turn! Explore the `starwars` data and identify issues:
 
 ``` r
 str(starwars)
 ```
 
-    ## Classes 'spec_tbl_df', 'tbl_df', 'tbl' and 'data.frame': 87 obs. of  10 variables:
-    ##  $ character name: chr  "Luke Skywalker" "C-3PO" "R2-D2" "Darth Vader" ...
-    ##  $ HEIGHT        : num  172 167 96 202 150 178 165 97 183 182 ...
-    ##  $ MASS          : num  77 75 32 136 49 120 75 32 84 77 ...
-    ##  $ hair color    : chr  "blond" NA NA "none" ...
-    ##  $ skin color    : chr  "fair" "gold" "white, blue" "white" ...
-    ##  $ eye color     : chr  "blue" "yellow" "red" "yellow" ...
-    ##  $ year of bith  : num  19 112 33 41.9 19 52 47 NA 24 57 ...
-    ##  $ gender        : chr  "male" NA NA "male" ...
-    ##  $ homeworld     : chr  "Tatooine" "Tatooine" "Naboo" "Tatooine" ...
-    ##  $ species       : chr  "Human" "Droid" "Droid" "Human" ...
+    ## spec_tbl_df [87 × 10] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+    ##  $ character name: chr [1:87] "Luke Skywalker" "C-3PO" "R2-D2" "Darth Vader" ...
+    ##  $ HEIGHT        : num [1:87] 172 167 96 202 150 178 165 97 183 182 ...
+    ##  $ MASS          : num [1:87] 77 75 32 136 49 120 75 32 84 77 ...
+    ##  $ hair color    : chr [1:87] "blond" NA NA "none" ...
+    ##  $ skin color    : chr [1:87] "fair" "gold" "white, blue" "white" ...
+    ##  $ eye color     : chr [1:87] "blue" "yellow" "red" "yellow" ...
+    ##  $ year of bith  : num [1:87] 19 112 33 41.9 19 52 47 NA 24 57 ...
+    ##  $ gender        : chr [1:87] "male" NA NA "male" ...
+    ##  $ homeworld     : chr [1:87] "Tatooine" "Tatooine" "Naboo" "Tatooine" ...
+    ##  $ species       : chr [1:87] "Human" "Droid" "Droid" "Human" ...
     ##  - attr(*, "spec")=
     ##   .. cols(
     ##   ..   `character name` = col_character(),
@@ -165,6 +167,7 @@ str(starwars)
     ##   ..   homeworld = col_character(),
     ##   ..   species = col_character()
     ##   .. )
+    ##  - attr(*, "problems")=<externalptr>
 
 ## Fixing Variable Names
 
@@ -175,14 +178,14 @@ have a data set with a large number of columns that you’ll want to
 retain, but many of which need to be renamed, the `janitor` package’s
 `clean_names()` function can help jump start the process.
 
-The `case` argument is particularly important here. The default is `case
-= snake`: \* “snake” produces snake\_case
+The `case` argument is particularly important here. The default is
+`case = snake`: \* “snake” produces snake_case
 
-There are several other options though: \* “lower\_camel” or
-“small\_camel” produces lowerCamel \* “upper\_camel” or “big\_camel”
-produces UpperCamel \* “screaming\_snake” or “all\_caps” produces
-ALL\_CAPS \* “lower\_upper” produces lowerUPPER \* “upper\_lower”
-produces UPPERlower
+There are several other options though: \* “lower_camel” or
+“small_camel” produces lowerCamel \* “upper_camel” or “big_camel”
+produces UpperCamel \* “screaming_snake” or “all_caps” produces ALL_CAPS
+\* “lower_upper” produces lowerUPPER \* “upper_lower” produces
+UPPERlower
 
 We’ll try out `clean_names()` on the `mpg` data:
 
@@ -200,7 +203,7 @@ word *then* every time we see the pipe operator (`%>%`):
 
 We use pipelines to make our code easier to read.
 
-Now, back to renaming variables\! We can specify a different case using:
+Now, back to renaming variables! We can specify a different case using:
 
 ``` r
 mpg %>%
@@ -208,7 +211,7 @@ mpg %>%
 ```
 
 Now, you try with the `starwars` data. Use whatever format you’d like,
-and save your output to `starwars_1_names`\!
+and save your output to `starwars_1_names`!
 
 ``` r
 starwars %>%
@@ -297,7 +300,7 @@ mpg_4_subset %>%
   select(-hwy)
 ```
 
-    ## # A tibble: 234 x 2
+    ## # A tibble: 234 × 2
     ##    mfr   model     
     ##    <chr> <chr>     
     ##  1 audi  a4        
@@ -320,7 +323,7 @@ starwars_4_subset %>%
   select(-birthYear)
 ```
 
-    ## # A tibble: 87 x 2
+    ## # A tibble: 87 × 2
     ##    planet   name              
     ##    <chr>    <chr>             
     ##  1 Tatooine Luke Skywalker    
@@ -355,21 +358,18 @@ read_csv(here("data", "mpg_messy.csv")) %>%
   select(mfr, model, hwy) -> mpgClean
 ```
 
-    ## Parsed with column specification:
-    ## cols(
-    ##   `manufacturer's name` = col_character(),
-    ##   `vehicle model` = col_character(),
-    ##   `Engine Displacement` = col_double(),
-    ##   YEAR = col_double(),
-    ##   `# of cylinders` = col_double(),
-    ##   `transmission type` = col_character(),
-    ##   `drivetrain type` = col_character(),
-    ##   `city fuel efficiency (mpg)` = col_double(),
-    ##   `highway fuel efficency (mpg)` = col_double(),
-    ##   `vehicle class` = col_character()
-    ## )
+    ## Rows: 234 Columns: 10
 
-This is more compact (less opportunity for typos\!) and far easier to
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## chr (5): manufacturer's name, vehicle model, transmission type, drivetrain t...
+    ## dbl (5): Engine Displacement, YEAR, # of cylinders, city fuel efficiency (mp...
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+This is more compact (less opportunity for typos!) and far easier to
 read:
 
 1.  First, we import the `mpg_messy.csv` data, *then*
@@ -391,16 +391,13 @@ read_csv(here("data", "starwars_messy.csv")) %>%
   select(planet, everything()) -> starwarsClean
 ```
 
-    ## Parsed with column specification:
-    ## cols(
-    ##   `character name` = col_character(),
-    ##   HEIGHT = col_double(),
-    ##   MASS = col_double(),
-    ##   `hair color` = col_character(),
-    ##   `skin color` = col_character(),
-    ##   `eye color` = col_character(),
-    ##   `year of bith` = col_double(),
-    ##   gender = col_character(),
-    ##   homeworld = col_character(),
-    ##   species = col_character()
-    ## )
+    ## Rows: 87 Columns: 10
+
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## chr (7): character name, hair color, skin color, eye color, gender, homeworl...
+    ## dbl (3): HEIGHT, MASS, year of bith
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
